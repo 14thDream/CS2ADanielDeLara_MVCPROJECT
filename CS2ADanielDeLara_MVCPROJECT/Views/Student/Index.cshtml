@@ -1,5 +1,4 @@
-﻿@{
-}
+﻿@model IEnumerable<CS2ADanielDeLara_MVCPROJECT.BusLogic.Model.tblStudent>
 
 <div>
     <h2>Student List</h2>
@@ -10,8 +9,14 @@
             <th>Age</th>
             <th>Course</th>
         </tr>
-        <tr>
-            <td></td>
-        </tr>
+        @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.FirstName</td>
+                    <td>@student.LastName</td>
+                    <td>@student.Age</td>
+                    <td>@student.Course</td>
+                </tr>    
+            }
     </table>
 </div>
