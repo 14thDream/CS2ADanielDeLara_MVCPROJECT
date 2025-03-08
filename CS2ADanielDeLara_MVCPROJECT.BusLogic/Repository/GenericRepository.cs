@@ -12,7 +12,7 @@ namespace CS2ADanielDeLara_MVCPROJECT.BusLogic.Repository
     {
         IDbConnection _connection;
 
-        readonly string connectionString = "Server=DESKTOP-NATU95R\\SQLEXPRESS; Database=SampleMVC_db; Trusted_Connection=True; MultipleActiveResultSets=true";
+        readonly string connectionString = "Server=PL30\\SQLEXPRESS; Database=Student_DB; Trusted_Connection=True; MultipleActiveResultSets=true";
         public GenericRepository()
         {
 
