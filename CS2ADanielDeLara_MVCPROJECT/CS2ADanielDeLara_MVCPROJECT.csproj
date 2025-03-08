@@ -14,4 +14,8 @@
     <ProjectReference Include="..\CS2ADanielDeLara_MVCPROJECT.BusLogic\CS2ADanielDeLara_MVCPROJECT.BusLogic.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>
