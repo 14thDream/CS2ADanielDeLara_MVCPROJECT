@@ -11,5 +11,10 @@ namespace CS2ADanielDeLara_MVCPROJECT.Controllers
             var students = _studentService.GetAll();
             return View(students);
         }
+
+        public IActionResult AddNewStudent()
+        {
+            return View();
+        }
     }
 }
