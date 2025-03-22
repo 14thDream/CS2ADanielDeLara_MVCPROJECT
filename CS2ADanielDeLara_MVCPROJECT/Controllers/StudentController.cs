@@ -26,6 +26,19 @@ namespace CS2ADanielDeLara_MVCPROJECT.Controllers
             return View();
         }
 
-
+        [HttpPost]
+        public IActionResult AddStudent(tblStudent student)
+        {
+            try
+            {
+                bool result = _studentService.Add(student);
+                return Json(new { success = result, message = result ? "Student added successfully" : "Failed to add student" });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error adding student");
+                return Json(new { success = false, message = "An error occurred" });
+            }
+        }
     }
 }
