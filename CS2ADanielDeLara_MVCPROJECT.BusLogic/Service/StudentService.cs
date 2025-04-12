@@ -15,5 +15,15 @@ namespace CS2ADanielDeLara_MVCPROJECT.BusLogic.Service
         {
             return _studentRepository.Add(student);
         }
+
+        public tblStudent GetById(int id)
+        {
+            return _studentRepository.GetById(id);
+        }
+
+        public bool Update(tblStudent student)
+        {
+            return _studentRepository.Update(student);
+        }
     }
 }

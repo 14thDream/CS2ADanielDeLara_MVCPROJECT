@@ -18,6 +18,21 @@ const AddStudent = async (student) => {
     }
 }
 
+const UpdateStudent = async (student) => {
+    try {
+        const result = await AjaxPOST('/Student/EditStudent', student);
+        if (result.success) {
+            alert('Student updated successfully!');
+            window.location.href = "/Student/Index";
+        } else {
+            alert(`Failed to update student: ${result.message}`);
+        }
+    } catch (error) {
+        console.error('Error updating student:', error);
+        alert('An error occurred while updating the student.');
+    }
+}
+
 $(document).ready(function () {
     $('#addStudentForm').on('submit', function (e) {
         e.preventDefault();
@@ -28,5 +43,17 @@ $(document).ready(function () {
             Course: $('#Course').val()
         };
         AddStudent(student);
+    });
+
+    $('#editStudentForm').on('submit', function (e) {
+        e.preventDefault();
+        const student = {
+            Id: $('#Id').val(),
+            FirstName: $('#FirstName').val(),
+            LastName: $('#LastName').val(),
+            Age: $('#Age').val(),
+            Course: $('#Course').val()
+        };
+        UpdateStudent(student);
     });
 });

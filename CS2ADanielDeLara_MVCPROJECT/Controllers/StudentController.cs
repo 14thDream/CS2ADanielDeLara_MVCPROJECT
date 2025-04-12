@@ -26,6 +26,12 @@ namespace CS2ADanielDeLara_MVCPROJECT.Controllers
             return View();
         }
 
+        public IActionResult EditStudent(int id)
+        {
+            var student = _studentService.GetById(id);
+            return View(student);
+        }
+
         [HttpPost]
         public IActionResult AddStudent(tblStudent student)
         {
@@ -37,6 +43,21 @@ namespace CS2ADanielDeLara_MVCPROJECT.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error adding student");
+                return Json(new { success = false, message = "An error occurred" });
+            }
+        }
+
+        [HttpPost]
+        public IActionResult EditStudent(tblStudent student)
+        {
+            try
+            {
+                bool result = _studentService.Update(student);
+                return Json(new { success = result, message = result ? "Student updated successfully" : "Failed to update student" });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating student");
                 return Json(new { success = false, message = "An error occurred" });
             }
         }
