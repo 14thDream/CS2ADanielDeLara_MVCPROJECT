@@ -103,8 +103,9 @@ namespace CS2ADanielDeLara_MVCPROJECT.BusLogic.Repository
                 string tableName = GetTableName();
                 string keyColumn = GetKeyColumnName();
 
-                string query = $"DELETE FROM {tableName} WHERE {keyColumn} = '{id}'";
-                result = _connection.Query<T>(query);
+                string suffix = $"FROM {tableName} WHERE {keyColumn} = '{id}'";
+                result = _connection.Query<T>($"SELECT * {suffix}");
+                _connection.Query<T>($"DELETE {suffix}");
             }
             catch (Exception ex)
             {

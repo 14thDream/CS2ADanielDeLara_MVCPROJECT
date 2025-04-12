@@ -19,7 +19,8 @@
                     <td>@student.Age</td>
                     <td>@student.Course</td>
                     <td>
-                        <a class="btn btn-primary m-2" href="/Student/EditStudent/@student.Id">Edit</a>
+                        <a class="btn btn-primary" href="/Student/EditStudent/@student.Id">Edit</a>
+                        <button class="btn btn-primary" onclick="DeleteStudent(@student.Id)">Delete</button>
                     </td>
                 </tr>    
             }

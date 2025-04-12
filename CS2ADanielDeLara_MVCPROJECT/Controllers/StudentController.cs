@@ -61,5 +61,20 @@ namespace CS2ADanielDeLara_MVCPROJECT.Controllers
                 return Json(new { success = false, message = "An error occurred" });
             }
         }
+
+        [HttpPost]
+        public IActionResult DeleteStudent(int id)
+        {
+            try
+            {
+                bool result = _studentService.Delete(id) != null;
+                return Json(new { success = result, message = result ? "Student deleted successfully" : "Failed to delete student" });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error deleting student");
+                return Json(new { success = false, message = "An error occurred" });
+            }
+        }
     }
 }

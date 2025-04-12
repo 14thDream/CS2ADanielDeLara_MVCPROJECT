@@ -33,6 +33,25 @@ const UpdateStudent = async (student) => {
     }
 }
 
+const DeleteStudent = async (id) => {
+    if (!confirm("Are you sure you want to delete this student?")) {
+        return;
+    }
+
+    try {
+        const result = await AjaxPOST('/Student/DeleteStudent', {Id: id});
+        if (result.success) {
+            alert('Student deleted successfully!');
+            window.location.reload();
+        } else {
+            alert(`Failed to delete student: ${result.message}`);
+        }
+    } catch (error) {
+        console.error('Error deleting student:', error);
+        alert('An error occurred while deleting the student.');
+    }
+}
+
 $(document).ready(function () {
     $('#addStudentForm').on('submit', function (e) {
         e.preventDefault();

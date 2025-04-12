@@ -25,5 +25,10 @@ namespace CS2ADanielDeLara_MVCPROJECT.BusLogic.Service
         {
             return _studentRepository.Update(student);
         }
+
+        public tblStudent Delete(int id)
+        {
+            return _studentRepository.Delete(id);
+        }
     }
 }
